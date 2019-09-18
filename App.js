@@ -1,16 +1,39 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { SafeAreaView, ScrollView } from 'react-native';
 import styled from 'styled-components';
+import Card from './components/Card';
 
 export default function App() {
   return (
     <Container>
-      <TitleBar>
-        <Avatar source={require('./assets/avatar.jpg')} />
-        <Title>Welcome back,</Title>
-        <Name>Mario</Name>
-      </TitleBar>
-      <Subtitle>Featured Post</Subtitle>
+      <SafeAreaView>
+        <ScrollView style={{ height: '100%' }}>
+          <TitleBar>
+            <Avatar source={require('./assets/avatar.jpg')} />
+            <Title>Welcome back,</Title>
+            <Name>Mario</Name>
+          </TitleBar>
+          <Subtitle>Featured Post</Subtitle>
+          <ScrollView
+            horizontal={true}
+            style={{ paddingBottom: 30 }}
+            showsHorizontalScrollIndicator={false}
+          >
+            <Card
+              title="Article 1"
+              image={require('./assets/background2.jpg')}
+            />
+            <Card
+              title="Article 2"
+              image={require('./assets/background2.jpg')}
+            />
+            <Card
+              title="Article 3"
+              image={require('./assets/background2.jpg')}
+            />
+          </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     </Container>
   );
 }
